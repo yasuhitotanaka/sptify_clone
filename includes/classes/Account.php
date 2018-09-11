@@ -1,6 +1,6 @@
 <?php
   class Account {
-    private $constructor;
+    private $connection;
     private $errorArray;
 
     public function __construct($connection) {
