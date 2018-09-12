@@ -23,6 +23,10 @@
       $this->path = $this->mysqlData['path'];
     }
 
+    public function getID() {
+      return $this->id;
+    }
+
     public function getTitle() {
       return $this->title;
     }
