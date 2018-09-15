@@ -36,5 +36,17 @@
        "SELECT songID FROM playlistsongs WHERE playlistID='$this->id'");
       return mysqli_num_rows($query);
     }
+
+    public function getSongIDs() {
+
+      $query = mysqli_query($this->connection,
+       "SELECT songID FROM playlistsongs WHERE playlistID='$this->id' ORDER BY playlistOrder ASC");
+
+      $songs = array();
+      while($row = mysqli_fetch_array($query)) {
+        array_push($songs, $row['songID']);
+        }
+      return $songs;
+    }
 }
 ?>
