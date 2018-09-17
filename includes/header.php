@@ -4,11 +4,12 @@
   include("includes/classes/Artist.php");
   include("includes/classes/Album.php");
   include("includes/classes/Song.php");
-  // session_destroy(); Log out
+  include("includes/classes/Playlist.php");
 
   if (isset($_SESSION['userLoggedIn'])) {
-    $userLoggedIn = $_SESSION['userLoggedIn'];
-    echo "<script>userLoggedIn = '$userLoggedIn'</script>";
+    $userLoggedIn = new User($connection, $_SESSION['userLoggedIn']);
+    $username = $userLoggedIn->getUserName();
+    echo "<script>userLoggedIn = '$username'</script>";
   } else {
     header("Location: register.php");
   }
