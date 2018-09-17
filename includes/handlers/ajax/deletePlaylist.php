@@ -5,10 +5,10 @@
 
     $playlistID = $_POST['playlistID'];
 
-    $query = mysqli_query($connection, "DELETE FROM playlists WHERE id='$playlistID'");
-    $query = mysqli_query($connection, "DELETE FROM playlistsongs WHERE playlistID='$playlistID'");
+    $playlistQuery = mysqli_query($connection, "DELETE FROM playlists WHERE id='$playlistID'");
+    $playlistSongQuery = mysqli_query($connection, "DELETE FROM playlistsongs WHERE playlistID='$playlistID'");
 
   } else {
-    echo "Name or username parameters not passed into file";
+    echo "PlaylistID was not passed into deletePlaylist.php";
   }
 ?>
